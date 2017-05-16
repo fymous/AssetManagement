@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'com.springboot.rest'
+version = '1.0-SNAPSHOT'
+
+description = """SpringBootRest"""
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+
+
+repositories {
+        
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-jersey', version:'1.4.0.RELEASE'
+    compile group: 'org.hibernate', name: 'hibernate-core', version:'4.3.10.Final'
+    compile group: 'com.h2database', name: 'h2', version:'1.4.195'
+    testCompile group: 'junit', name: 'junit', version:'3.8.1'
+}
