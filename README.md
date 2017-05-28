@@ -1,5 +1,5 @@
 # AssetManagement
-rest api based application which lets you add new shops and fetch nearby shops based on location of customer
+Rest api based application which lets you add new shops and fetch nearby shops based on location of customer
 
 APIs
 1. Add a shop (POST)

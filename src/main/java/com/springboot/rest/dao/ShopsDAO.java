@@ -2,6 +2,10 @@ package com.springboot.rest.dao;
 
 import java.util.List;
 
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -70,8 +74,13 @@ public class ShopsDAO {
 	 *
 	 */
  	public void updateShop(String shopName, Shop shop){
-        if(shopName == null)  
-              return;  
+        if(shopName == null){
+        	throw new WebApplicationException(Response.status(
+        			Response.Status.INTERNAL_SERVER_ERROR).type(
+        			MediaType.APPLICATION_JSON).entity(
+        			"Shop, " + shopName + ", is not found").build());
+        }  
+                
            Session session = SessionUtil.getSession();
            Transaction tx = session.beginTransaction();
            String hql = "update Shop set shopAddressNumber = :shopAddressNumber, "
