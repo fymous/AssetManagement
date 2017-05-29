@@ -139,12 +139,13 @@ public class ShopService {
 	  ShopsDAO shopsDAO = new ShopsDAO();
 	  if(shopsDAO.alreadyExists(shopName)){
 		  shopsDAO.updateShop(shopName, shop);
+		  return Response.status(200).type("text/plain").entity("Shop data updated").build();
 	  }
 	  else{
-		  shopsDAO.addShop(shop);  
+		  shopsDAO.addShop(shop);
+		  return Response.status(200).type("text/plain").entity("New shop created").build();
 	  }  
-	  logger.info("Exiting addShop method");
-      return Response.ok().build();
+
   }
   
 }

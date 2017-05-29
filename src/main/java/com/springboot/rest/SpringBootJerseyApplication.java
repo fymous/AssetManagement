@@ -1,4 +1,5 @@
 package com.springboot.rest;
+import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,8 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class SpringBootJerseyApplication {
- 
-  public static void main(String[] args) {
-    SpringApplication.run(SpringBootJerseyApplication.class, args);
-  }
+	private static final Logger logger = Logger.getLogger(SpringBootJerseyApplication.class);
+  
+	public static void main(String[] args) {
+		logger.info("Entering main spring boot class");
+		SpringApplication.run(SpringBootJerseyApplication.class, args);
+	}
 }
